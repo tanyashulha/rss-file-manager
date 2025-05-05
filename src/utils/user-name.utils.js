@@ -1,0 +1,1 @@
+export const generateUsername = () => process.argv.slice(2)[0]?.split('=')[1] || '';

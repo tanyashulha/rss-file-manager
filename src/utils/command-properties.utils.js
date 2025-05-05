@@ -1,0 +1,1 @@
+export const getCommandProperties = (currCommand) => currCommand.split(/\s/g).slice(1);

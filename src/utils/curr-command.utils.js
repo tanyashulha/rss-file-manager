@@ -1,0 +1,1 @@
+export const getCurrCommand = (data) => data.toString('utf-8').trim();

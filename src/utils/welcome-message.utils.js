@@ -1,0 +1,1 @@
+export const generateWelcomeMessage = (name) => console.log(`Welcome to the File Manager, ${name}!`);
