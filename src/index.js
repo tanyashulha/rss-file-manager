@@ -17,6 +17,7 @@ import { getCommandProperties } from './utils/command-properties.utils.js';
 import { copyFileTo } from './fs/cp.js';
 import { removeFile } from './fs/rm.js';
 import { moveFile } from './fs/mv.js';
+import { getOperSystemInfo } from './osi/os.js';
 
 const parseCommandLine = (input) => {
     return input.split(' ');
@@ -65,6 +66,7 @@ const main = async () => {
                 moveFile(getCommandProperties(currCommand));
                 break;
             case Commands.Os:
+                getOperSystemInfo(getCommandProperties(currCommand));
                 break;
             case Commands.Hash:
                 break;
