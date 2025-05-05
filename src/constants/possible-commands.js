@@ -1,0 +1,16 @@
+export const Commands = {
+    Exit: '.exit',
+    Up: 'up',
+    Ls: 'ls',
+    Cd: 'cd',
+    Cat: 'cat',
+    Add: 'add',
+    Rn: 'rn',
+    Cp: 'cp',
+    Rm: 'rm',
+    Mv: 'mv',
+    Os: 'os',
+    Hash: 'hash',
+    Compress: 'compress',
+    Decompress: 'decompress',
+}
