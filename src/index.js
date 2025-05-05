@@ -19,6 +19,7 @@ import { removeFile } from './fs/rm.js';
 import { moveFile } from './fs/mv.js';
 import { getOperSystemInfo } from './osi/os.js';
 import { calculateHash } from './hash/hash.js';
+import { compressFile } from './zip/compress.js';
 
 const parseCommandLine = (input) => {
     return input.split(' ');
@@ -73,6 +74,7 @@ const main = async () => {
                 calculateHash(getCommandProperties(currCommand));
                 break;
             case Commands.Compress:
+                compressFile(getCommandProperties(currCommand));
                 break;
             case Commands.Decompress:
                 break;

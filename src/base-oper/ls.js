@@ -1,6 +1,6 @@
 import { readdir } from 'fs/promises';
 import { Messages } from '../constants/messages.js';
-import { generateCurrentPathMessage } from '../utils/current-path-mess.utils.js'
+import { generateCurrentPathMessage } from '../utils/current-path-mess.utils.js';
 
 export const printList = async (path) => {
     let arr = await readdir(path, { withFileTypes: true });
