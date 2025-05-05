@@ -20,6 +20,7 @@ import { moveFile } from './fs/mv.js';
 import { getOperSystemInfo } from './osi/os.js';
 import { calculateHash } from './hash/hash.js';
 import { compressFile } from './zip/compress.js';
+import { decompressFile } from './zip/decompress.js';
 
 const parseCommandLine = (input) => {
     return input.split(' ');
@@ -77,6 +78,7 @@ const main = async () => {
                 compressFile(getCommandProperties(currCommand));
                 break;
             case Commands.Decompress:
+                decompressFile(getCommandProperties(currCommand));
                 break;
             default:
                 console.log(Messages.InvalidInput);

@@ -1,19 +1,19 @@
 import { createReadStream, createWriteStream } from 'fs';
-import { createBrotliCompress } from 'zlib';
-import path from 'path';
 import { Messages } from '../constants/messages.js';
+import { createBrotliDecompress } from 'zlib';
 import { generateCurrentPathMessage } from '../utils/current-path-mess.utils.js';
+import path from 'path';
 
-export const compressFile = async ([ filePath, folderPath ]) => {
+export const decompressFile = async ([ filePath, folderPath ]) => {
     try {
         const fd = createReadStream(filePath);
         const arr = filePath.split('/');
         const fileName = arr[arr.length - 1];
-        const pathToCompress = path.resolve(`${folderPath}/${fileName.substring(0, fileName.indexOf('.'))}.br`);
-        const zip = createWriteStream(pathToCompress);
-        const brotli = createBrotliCompress();
+        const pathToDecompress = path.resolve(`${folderPath}/${fileName.substring(0, fileName.indexOf('.'))}.br`);
+        const wrS = createWriteStream(pathToDecompress);
+        const brotli = createBrotliDecompress();
 
-        await fd.pipe(brotli).pipe(zip);
+        await fd.pipe(brotli).pipe(wrS);
         await generateCurrentPathMessage(process.cwd());
     } catch {
         console.log(Messages.OperationFailed);
