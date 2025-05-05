@@ -57,7 +57,7 @@ const main = async () => {
                 createDirectory(getPathTo(currCommand));
                 break;
             case Commands.Rn:
-                renameFile(getCommandProperties(currCommand), getPathTo(currCommand));
+                renameFile(getCommandProperties(currCommand));
                 break;
             case Commands.Cp:
                 copyFileTo(getCommandProperties(currCommand));
