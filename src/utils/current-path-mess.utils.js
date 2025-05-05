@@ -1,1 +1,1 @@
-const generateCurrentPathMessage = (path) => console.log(`You are currently in ${path}`);
+export const generateCurrentPathMessage = (path) => console.log(`You are currently in ${path}`);
