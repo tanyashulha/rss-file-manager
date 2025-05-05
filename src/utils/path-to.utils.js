@@ -1,0 +1,1 @@
+export const getPathTo = (currCommand) => currCommand.split(/\s/g).slice(1)[0];
