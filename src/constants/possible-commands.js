@@ -5,6 +5,7 @@ export const Commands = {
     Cd: 'cd',
     Cat: 'cat',
     Add: 'add',
+    Mkdir: 'mkdir',
     Rn: 'rn',
     Cp: 'cp',
     Rm: 'rm',

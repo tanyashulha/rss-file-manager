@@ -9,6 +9,14 @@ import { goToFolder } from './base-oper/cd.js';
 import { getPathTo } from './utils/path-to.utils.js';
 import { printList } from './base-oper/ls.js';
 import { goUpperFromCurrent } from './base-oper/up.js';
+import { readAndPrint } from './fs/cat.js';
+import { createFile } from './fs/add.js';
+import { createDirectory } from './fs/mkdir.js';
+import { renameFile } from './fs/rn.js';
+import { getCommandProperties } from './utils/command-properties.utils.js';
+import { copyFileTo } from './fs/cp.js';
+import { removeFile } from './fs/rm.js';
+import { moveFile } from './fs/mv.js';
 
 const parseCommandLine = (input) => {
     return input.split(' ');
@@ -36,16 +44,25 @@ const main = async () => {
                 goToFolder(getPathTo(currCommand));
                 break;
             case Commands.Cat:
+                readAndPrint(getPathTo(currCommand))
                 break;
             case Commands.Add:
+                createFile(getPathTo(currCommand));
+                break;
+            case Commands.Mkdir:
+                createDirectory(getPathTo(currCommand));
                 break;
             case Commands.Rn:
+                renameFile(getCommandProperties(currCommand), getPathTo(currCommand));
                 break;
             case Commands.Cp:
+                copyFileTo(getCommandProperties(currCommand));
                 break;
             case Commands.Rm:
+                removeFile(getCommandProperties(currCommand));
                 break;
             case Commands.Mv:
+                moveFile(getCommandProperties(currCommand));
                 break;
             case Commands.Os:
                 break;
